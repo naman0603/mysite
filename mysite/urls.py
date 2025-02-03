@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.contrib import admin
+from django.urls import include, path
+from myapp import views  # Import views to use index as root
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('myapp/', include('myapp.urls')),
+    path('', views.index, name='home'),  # Redirect root URL to myapp index
 ]
