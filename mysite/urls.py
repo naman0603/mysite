@@ -15,14 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
-from django.contrib import admin
 from django.urls import include, path
-from myapp import views  # Import views to use index as root
+from myapp import views  # Import views to make index the root URL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('myapp/', include('myapp.urls')),
-    path('', views.index, name='home'),  # Redirect root URL to myapp index
+    path('myapp/', include('myapp.urls')),  # Include myapp URLs
+    path('', views.index, name='home'),  # Redirect '/' to index page
 ]
