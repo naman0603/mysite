@@ -1,0 +1,22 @@
+/* Default background color for the entire page */
+body {
+    background-color: #f4f4f4;  /* Light gray background */
+    color: #333;  /* Default text color */
+    font-size: 16px;  /* Default font size */
+    font-family: Arial, sans-serif;  /* Default font family */
+}
+
+/* Styling for <h1> tags */
+h1 {
+    color: #0044cc;  /* Blue text color */
+    font-size: 28px;  /* Large font size */
+    font-weight: bold;  /* Bold text */
+    text-align: center;  /* Centered heading */
+    margin-top: 20px;  /* Spacing from top */
+}
+
+/* Define .hbar1 class */
+.hbar1 {
+    display: inline;  /* Inline display */
+    margin: 15px;  /* Adds margin around elements */
+}
