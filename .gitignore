@@ -1,0 +1,29 @@
+# Ignore the virtual environment
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore the SQLite database file
+db.sqlite3
+
+# Ignore Django migrations (if needed)
+myapp/migrations/__pycache__/
+myapp/__pycache__/
+
+# Ignore system-specific files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Ignore logs and temporary files
+*.log
+*.swp
+*.swo
+
+# Ignore IDE and editor settings
+.vscode/
+.idea/
+*.iml
