@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Place Order{% endblock %}
+
+{% block body_block %}
+    <h2>Place an Order</h2>
+    
+    <h3>Available Products</h3>
+    {% if prodlist %}
+        <ul>
+            {% for product in prodlist %}
+                <li>{{ product.name }} - ${{ product.price }} (Stock: {{ product.stock }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}  <!-- Display form as table -->
+        </table>
+        <input type="submit" value="Place Order">
+    </form>
+    
+    {% if msg %}
+        <p><strong>{{ msg }}</strong></p>
+    {% endif %}
+{% endblock %}
