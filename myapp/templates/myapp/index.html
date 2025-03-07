@@ -1,39 +1,16 @@
-<!DOCTYPE html>
-{% load static %}
-
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Online Store APP</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />
-</head>
-
-<body>
-    <div>
-        <h1>{% block myhdg %}Hello Team 4{% endblock %}</h1>
-    </div>
-
+{% extends 'myapp/base.html' %}
     {% block body_block %}
         <h2>Categories</h2>
 
         {% if cat_list %}
+            <h1>{% block myhdg %}Hello Naman{% endblock %}</h1>
             <ul>
                 {% for cat in cat_list %}
                     <li><a href="{% url 'myapp:detail' cat.id %}">{{ cat.name }}</a></li>
+
                 {% endfor %}
             </ul>
         {% else %}
             <p><strong>No available categories!</strong></p>
         {% endif %}
     {% endblock %}
-
-    <hr />
-
-    <div>
-        <ul>
-            <li class="hbar1"><a href="{% url 'myapp:about' %}">About</a></li>
-            <li class="hbar1"><a href="{% url 'myapp:index' %}">Home</a></li>
-        </ul>
-    </div>
-</body>
-</html>
