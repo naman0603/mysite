@@ -1,0 +1,42 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block body_block %}
+    <h2>My Orders</h2>
+    
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% else %}
+        {% if orders %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Order Date</th>
+                        <th>Status</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.product.name }}</td>
+                            <td>{{ order.num_units }}</td>
+                            <td>{{ order.order_date }}</td>
+                            <td>{{ order.get_order_status_display }}</td>
+                            <td>${{ order.total_cost }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p><strong>You have not placed any orders yet.</strong></p>
+        {% endif %}
+    {% endif %}
+    
+    <p><a href="{% url 'myapp:index' %}">Back to Home</a></p>
+{% endblock %}

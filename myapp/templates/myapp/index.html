@@ -3,14 +3,18 @@
         <h2>Categories</h2>
 
         {% if cat_list %}
-            <h1>{% block myhdg %}Hello Naman{% endblock %}</h1>
             <ul>
                 {% for cat in cat_list %}
                     <li><a href="{% url 'myapp:detail' cat.id %}">{{ cat.name }}</a></li>
-
                 {% endfor %}
             </ul>
         {% else %}
             <p><strong>No available categories!</strong></p>
+        {% endif %}
+
+        {% if last_login %}
+            <p>Your last login was: {{ last_login }}</p>
+        {% else %}
+            <p>Your last login was more than one hour ago</p>
         {% endif %}
     {% endblock %}
